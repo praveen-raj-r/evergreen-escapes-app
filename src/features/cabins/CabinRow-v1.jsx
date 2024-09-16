@@ -1,8 +1,7 @@
 import styled from "styled-components";
-
+import { formatCurrency } from "../../utils/helpers";
 import CreateCabinForm from "./CreateCabinForm";
 import { useDeleteCabin } from "./useDeleteCabin";
-import { formatCurrency } from "../../utils/helpers";
 import { HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
 import { useCreateCabin } from "./useCreateCabin";
 import Modal from "../../ui/Modal";
@@ -74,7 +73,7 @@ function CabinRow({ cabin }) {
   }
 
   return (
-    <Table.Row>
+    <Table.Row role="row">
       <Img src={image} />
       <Cabin>{name}</Cabin>
       <div>Fits up to {maxCapacity} guests</div>
@@ -85,7 +84,7 @@ function CabinRow({ cabin }) {
         <span>&mdash;</span>
       )}
       <div>
-        <button disabled={isCreating} onClick={handleDuplicate}>
+        <button onClick={handleDuplicate} disabled={isCreating}>
           <HiSquare2Stack />
         </button>
 
@@ -95,6 +94,7 @@ function CabinRow({ cabin }) {
               <HiPencil />
             </button>
           </Modal.Open>
+
           <Modal.Window name="edit">
             <CreateCabinForm cabinToEdit={cabin} />
           </Modal.Window>
