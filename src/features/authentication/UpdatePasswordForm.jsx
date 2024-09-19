@@ -15,7 +15,6 @@ function UpdatePasswordForm() {
   function onSubmit({ password }) {
     updateUser({ password }, { onSuccess: reset });
   }
-
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRow

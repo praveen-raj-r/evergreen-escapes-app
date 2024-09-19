@@ -10,6 +10,8 @@ import { useSignup } from "./useSignup";
 function SignupForm() {
   const { signup, isLoading } = useSignup();
 
+  console.log(signup);
+
   const { register, formState, getValues, handleSubmit, reset } = useForm();
   const { errors } = formState;
 
@@ -25,6 +27,7 @@ function SignupForm() {
     <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Full name" error={errors?.fullName?.message}>
         <Input
+          disabled={isLoading}
           type="text"
           id="fullName"
           {...register("fullName", { required: "This field is required" })}
@@ -33,6 +36,7 @@ function SignupForm() {
 
       <FormRow label="Email address" error={errors?.email?.message}>
         <Input
+          disabled={isLoading}
           type="email"
           id="email"
           {...register("email", {
@@ -50,6 +54,7 @@ function SignupForm() {
         error={errors?.password?.message}
       >
         <Input
+          disabled={isLoading}
           type="password"
           id="password"
           {...register("password", {
@@ -64,6 +69,7 @@ function SignupForm() {
 
       <FormRow label="Repeat password" error={errors?.passwordConfirm?.message}>
         <Input
+          disabled={isLoading}
           type="password"
           id="passwordConfirm"
           {...register("passwordConfirm", {
@@ -76,10 +82,15 @@ function SignupForm() {
 
       <FormRow>
         {/* type is an HTML attribute! */}
-        <Button variation="secondary" type="reset">
+        <Button
+          disabled={isLoading}
+          variation="secondary"
+          type="reset"
+          onClick={reset}
+        >
           Cancel
         </Button>
-        <Button>Create new user</Button>
+        <Button disabled={isLoading}>Create new user</Button>
       </FormRow>
     </Form>
   );
