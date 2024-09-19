@@ -9,9 +9,6 @@ import { useSignup } from "./useSignup";
 
 function SignupForm() {
   const { signup, isLoading } = useSignup();
-
-  console.log(signup);
-
   const { register, formState, getValues, handleSubmit, reset } = useForm();
   const { errors } = formState;
 
@@ -23,27 +20,28 @@ function SignupForm() {
       }
     );
   }
+
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Full name" error={errors?.fullName?.message}>
         <Input
-          disabled={isLoading}
           type="text"
           id="fullName"
+          disabled={isLoading}
           {...register("fullName", { required: "This field is required" })}
         />
       </FormRow>
 
       <FormRow label="Email address" error={errors?.email?.message}>
         <Input
-          disabled={isLoading}
           type="email"
           id="email"
+          disabled={isLoading}
           {...register("email", {
             required: "This field is required",
             pattern: {
-              message: "Please provide a valid email address",
               value: /\S+@\S+\.\S+/,
+              message: "Please provide a valid email address",
             },
           })}
         />
@@ -54,14 +52,14 @@ function SignupForm() {
         error={errors?.password?.message}
       >
         <Input
-          disabled={isLoading}
           type="password"
           id="password"
+          disabled={isLoading}
           {...register("password", {
             required: "This field is required",
             minLength: {
               value: 8,
-              message: "password need a mininum of 8 characters",
+              message: "Password needs a minimum of 8 characters",
             },
           })}
         />
@@ -69,13 +67,13 @@ function SignupForm() {
 
       <FormRow label="Repeat password" error={errors?.passwordConfirm?.message}>
         <Input
-          disabled={isLoading}
           type="password"
           id="passwordConfirm"
+          disabled={isLoading}
           {...register("passwordConfirm", {
             required: "This field is required",
             validate: (value) =>
-              value === getValues().password || "passwords need to match",
+              value === getValues().password || "Passwords need to match",
           })}
         />
       </FormRow>
@@ -83,9 +81,9 @@ function SignupForm() {
       <FormRow>
         {/* type is an HTML attribute! */}
         <Button
-          disabled={isLoading}
           variation="secondary"
           type="reset"
+          disabled={isLoading}
           onClick={reset}
         >
           Cancel
