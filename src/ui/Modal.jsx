@@ -1,4 +1,5 @@
-import { cloneElement, createContext, useContext, useState } from "react";
+import { cloneElement } from "react";
+import { createContext, useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
 import styled from "styled-components";
@@ -60,7 +61,6 @@ function Modal({ children }) {
 
   const close = () => setOpenName("");
   const open = setOpenName;
-
   return (
     <ModalContext.Provider value={{ openName, close, open }}>
       {children}
@@ -76,6 +76,7 @@ function Open({ children, opens: opensWindowName }) {
 
 function Window({ children, name }) {
   const { openName, close } = useContext(ModalContext);
+
   const ref = useOutsideClick(close);
 
   if (name !== openName) return null;

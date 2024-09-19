@@ -21,9 +21,5 @@ const Form = styled.form`
   overflow: hidden;
   font-size: 1.4rem;
 `;
-
-Form.defaultProps = {
-  type: "regular",
-};
-
+Form.defaultProps = { type: "regular" };
 export default Form;
