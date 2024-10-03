@@ -2,6 +2,7 @@ import styled from "styled-components";
 import LoginForm from "../features/authentication/LoginForm";
 import Logo from "../ui/Logo";
 import Heading from "../ui/Heading";
+import { device } from "../styles/GlobalStyles";
 // import CabinTable from "../features/cabins/CabinTable";
 
 const LoginLayout = styled.main`
@@ -12,6 +13,10 @@ const LoginLayout = styled.main`
   justify-content: center;
   gap: 3.2rem;
   background-color: var(--color-grey-50);
+
+  @media ${device.sm} {
+    grid-template-columns: auto;
+  }
 `;
 
 function Login() {
