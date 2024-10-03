@@ -19,6 +19,13 @@ const StyledDashboardLayout = styled.div`
   gap: 2.4rem;
 `;
 
+const StyledRow = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 34rem;
+  gap: 2.4rem;
+`;
+
 function DashboardLayout() {
   const { isLoading: isLoading1, bookings } = useRecentBookings();
   const { isLoading: isLoading2, confirmedStays, numDays } = useRecentStays();
@@ -33,10 +40,10 @@ function DashboardLayout() {
         numDays={numDays}
         cabinCount={cabins.length}
       />
-
-      <TodayActivity />
-
-      <DurationChart confirmedStays={confirmedStays} />
+      <StyledRow>
+        <TodayActivity />
+        <DurationChart confirmedStays={confirmedStays} />
+      </StyledRow>
 
       <SalesChart bookings={bookings} numDays={numDays} />
     </StyledDashboardLayout>
