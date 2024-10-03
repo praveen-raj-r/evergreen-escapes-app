@@ -3,7 +3,7 @@ import HeaderMenu from "./HeaderMenu";
 import UserAvatar from "../features/authentication/UserAvatar";
 
 import ButtonIcon from "./ButtonIcon";
-import { BsCaretLeftSquare } from "react-icons/bs";
+import { CgChevronDoubleRightR } from "react-icons/cg";
 
 const StyledHeader = styled.header`
   background-color: var(--color-grey-0);
@@ -26,7 +26,7 @@ function Header() {
   return (
     <StyledHeader>
       <ButtonIcon>
-        <BsCaretLeftSquare />
+        <CgChevronDoubleRightR />
       </ButtonIcon>
       <StyledFlexContainer>
         <UserAvatar />
