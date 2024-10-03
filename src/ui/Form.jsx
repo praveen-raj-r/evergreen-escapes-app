@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { device } from "../styles/GlobalStyles";
 
 const Form = styled.form`
   ${(props) =>
@@ -10,16 +11,20 @@ const Form = styled.form`
       background-color: var(--color-grey-0);
       border: 1px solid var(--color-grey-100);
       border-radius: var(--border-radius-md);
-    `}
+    `};
 
   ${(props) =>
     props.type === "modal" &&
     css`
       width: 80rem;
-    `}
-    
+    `};
+
   overflow: hidden;
   font-size: 1.4rem;
+  @media ${device.sm} {
+    padding: 1.2rem 2rem;
+    margin: 0 2rem;
+  }
 `;
 Form.defaultProps = { type: "regular" };
 export default Form;
