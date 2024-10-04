@@ -1,18 +1,23 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import styled from "styled-components";
-import { device } from "../styles/GlobalStyles";
+import styled, { css } from "styled-components"; 
+import { useState } from "react";
+
 const StyledAppLayout = styled.div`
   display: grid;
-  grid-template-columns: 26rem 1fr;
-  grid-template-rows: auto 1fr;
   height: 100vh;
 
-  @media ${device.md} {
-    grid-template-columns: 26rem 1fr;
-    grid-template-rows: auto 1fr;
-  }
+  ${(props) =>
+    props.toggled === true
+      ? css`
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr;
+        `
+      : css`
+          grid-template-columns: 26rem 1fr;
+          grid-template-rows: auto 1fr;
+        `}
 `;
 
 const Main = styled.main`
@@ -29,10 +34,16 @@ const Container = styled.div`
 `;
 
 function AppLayout() {
+  const [toggleState, setToggleState] = useState(true);
+
+  function toggle() {
+    setToggleState(!toggleState);
+  }
+
   return (
-    <StyledAppLayout>
-      <Header />
-      <Sidebar />
+    <StyledAppLayout toggled={toggleState}>
+      <Header toggle={toggle} />
+      {!toggleState && <Sidebar />}
       <Main>
         <Container>
           <Outlet />
