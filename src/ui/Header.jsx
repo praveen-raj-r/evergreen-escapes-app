@@ -22,10 +22,10 @@ const StyledFlexContainer = styled.div`
   align-items: center;
 `;
 
-function Header() {
+function Header({ toggle }) {
   return (
     <StyledHeader>
-      <ButtonIcon>
+      <ButtonIcon onClick={toggle}>
         <CgChevronDoubleRightR />
       </ButtonIcon>
       <StyledFlexContainer>
