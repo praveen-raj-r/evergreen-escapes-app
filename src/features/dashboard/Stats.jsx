@@ -7,12 +7,16 @@ import { device } from "../../styles/GlobalStyles";
 
 const StyledStatsCardsContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   gap: 2.4rem;
 
   @media ${device.lg} {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media ${device.sm} {
+    grid-template-columns: 1fr;
   }
 `;
 
