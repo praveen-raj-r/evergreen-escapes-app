@@ -33,6 +33,7 @@ const Icon = styled.div`
 `;
 
 const Title = styled.h5`
+  text-wrap: nowrap;
   align-self: end;
   font-size: 1.2rem;
   text-transform: uppercase;

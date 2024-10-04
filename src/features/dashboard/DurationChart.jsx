@@ -9,6 +9,7 @@ import {
   Tooltip,
 } from "recharts";
 import { useDarkMode } from "../../context/DarkModeContext";
+import { device } from "../../styles/GlobalStyles";
 
 const ChartBox = styled.div`
   /* Box */
@@ -18,6 +19,10 @@ const ChartBox = styled.div`
 
   padding: 2.4rem 3.2rem;
   grid-column: 3 / span 2;
+
+  @media ${device.lg} {
+    grid-column: auto;
+  }
 
   & > *:first-child {
     margin-bottom: 1.6rem;
@@ -147,7 +152,7 @@ function DurationChart({ confirmedStays }) {
   const data = prepareData(startData, confirmedStays);
   return (
     <ChartBox>
-      <Heading as="h2">Stay duration summary</Heading>
+      <Heading as="h3">Stay duration summary</Heading>
       <ResponsiveContainer width="100%" height={240}>
         <PieChart>
           <Pie
