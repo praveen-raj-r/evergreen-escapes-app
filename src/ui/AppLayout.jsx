@@ -1,28 +1,18 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import styled, { css } from "styled-components"; 
+import styled from "styled-components";
 import { useState } from "react";
 
 const StyledAppLayout = styled.div`
-  display: grid;
-  height: 100vh;
-
-  ${(props) =>
-    props.toggled === true
-      ? css`
-          grid-template-columns: 1fr;
-          grid-template-rows: auto 1fr;
-        `
-      : css`
-          grid-template-columns: 26rem 1fr;
-          grid-template-rows: auto 1fr;
-        `}
+  display: flex;
+  width: 100%;
 `;
 
 const Main = styled.main`
   background-color: var(--color-grey-50);
-  padding: 4rem 2.8rem;
+  width: 100%;
+  height: 100%;
 `;
 
 const Container = styled.div`
@@ -31,6 +21,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+  padding: 4rem 2.8rem;
 `;
 
 function AppLayout() {
@@ -42,9 +33,9 @@ function AppLayout() {
 
   return (
     <StyledAppLayout toggled={toggleState}>
-      <Header toggle={toggle} />
       {!toggleState && <Sidebar />}
       <Main>
+        <Header toggle={toggle} />
         <Container>
           <Outlet />
         </Container>
