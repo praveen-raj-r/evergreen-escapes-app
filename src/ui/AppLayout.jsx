@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const StyledAppLayout = styled.div`
   display: flex;
-  width: 100%;
+  width: 100% ;
 `;
 
 const Main = styled.main`
