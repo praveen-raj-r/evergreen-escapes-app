@@ -33,6 +33,7 @@ const Stacked = styled.div`
 
   & span:first-child {
     font-weight: 500;
+    text-wrap: nowrap;
   }
 
   & span:last-child {

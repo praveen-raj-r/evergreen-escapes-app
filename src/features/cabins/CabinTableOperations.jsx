@@ -1,10 +1,22 @@
+import styled from "styled-components";
 import Filter from "../../ui/Filter";
 import SortBy from "../../ui/SortBy";
-import TableOperations from "../../ui/TableOperations";
+import { device } from "../../styles/GlobalStyles";
 
+const StyledTableOperations = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+
+  @media ${device.md} {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+`;
 function CabinTableOperations() {
   return (
-    <TableOperations>
+    <StyledTableOperations>
       <Filter
         filterField="discount"
         options={[
@@ -23,7 +35,7 @@ function CabinTableOperations() {
           { value: "maxCapacity-desc", label: "Sort by capacity (high first)" },
         ]}
       />
-    </TableOperations>
+    </StyledTableOperations>
   );
 }
 
