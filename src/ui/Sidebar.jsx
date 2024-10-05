@@ -12,6 +12,7 @@ const StyledSidebar = styled.aside`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+  min-height: 100%;
 `;
 function Sidebar() {
   return (
@@ -19,7 +20,7 @@ function Sidebar() {
       <Logo />
       <MainNav />
 
-      {/* <Uploader /> */}
+{/*       <Uploader /> */}
     </StyledSidebar>
   );
 }
