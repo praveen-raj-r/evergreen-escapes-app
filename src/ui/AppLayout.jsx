@@ -7,13 +7,13 @@ import { useState } from "react";
 const StyledAppLayout = styled.div`
   display: flex;
   width: 100%;
+  min-height: 100vh;
 `;
 
 const Main = styled.main`
   background-color: var(--color-grey-50);
   width: 100%;
-  min-height: 100vh;
-  height: 100%;
+  min-height: 100%;
 `;
 
 const Container = styled.div`
