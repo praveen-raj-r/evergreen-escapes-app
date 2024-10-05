@@ -12,6 +12,7 @@ const StyledAppLayout = styled.div`
 const Main = styled.main`
   background-color: var(--color-grey-50);
   width: 100%;
+  min-height: 100vh;
   height: 100%;
 `;
 
