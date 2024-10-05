@@ -5,7 +5,6 @@ import Row from "../../ui/Row";
 import { useTodayActivity } from "./useTodayActivity";
 import Spinner from "../../ui/Spinner";
 import TodayItem from "./TodayItem";
-import { device } from "../../styles/GlobalStyles";
 
 const StyledToday = styled.div`
   /* Box */
@@ -17,12 +16,8 @@ const StyledToday = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  grid-column: 1 / span 2;
   padding-top: 2.4rem;
-
-  @media ${device.lg} {
-    grid-column: auto;
-  }
+  width: 100%;
 `;
 
 const TodayList = styled.ul`
@@ -51,6 +46,7 @@ function TodayActivity() {
       <Row type="horizontal">
         <Heading as="h3">Today</Heading>
       </Row>
+
       {!isLoading ? (
         activities?.length > 0 ? (
           <TodayList>

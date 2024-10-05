@@ -8,8 +8,8 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
+
 import { useDarkMode } from "../../context/DarkModeContext";
-import { device } from "../../styles/GlobalStyles";
 
 const ChartBox = styled.div`
   /* Box */
@@ -18,11 +18,7 @@ const ChartBox = styled.div`
   border-radius: var(--border-radius-md);
 
   padding: 2.4rem 3.2rem;
-  grid-column: 3 / span 2;
-
-  @media ${device.lg} {
-    grid-column: auto;
-  }
+  width: 100%;
 
   & > *:first-child {
     margin-bottom: 1.6rem;
