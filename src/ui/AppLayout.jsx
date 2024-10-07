@@ -8,6 +8,7 @@ const StyledAppLayout = styled.div`
   display: flex;
   width: 100%;
   min-height: 100vh;
+  max-width: 100vw;
 `;
 
 const Main = styled.main`
